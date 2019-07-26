@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -15,6 +16,7 @@ import java.util.Map;
 
 /*卖家用户*/
 @Controller
+@RequestMapping("seller+")
 public class SellerUserController {
 
     @Autowired
@@ -33,9 +35,9 @@ public class SellerUserController {
             return new ModelAndView("common/error");
         }
         /*2.设置token至redis*/
-
+        stringRedisTemplate.opsForValue().set("abc","wwwwww");  //要操作某些方法
         /*3.设置token至cookie*/
-
+        return null;
     }
 
     @GetMapping("logout")
